@@ -31,6 +31,7 @@ const DeveloperCard = () => {
           toast.success("Login successful");
           window.localStorage.setItem("token", data.data);
           window.localStorage.setItem("loggedIn", true);
+  
           window.location.href = "./DeveloperHome";
         } else {
           toast.error("Login failed. Please check your credentials and try again.");
@@ -136,7 +137,9 @@ const DeveloperCard = () => {
                 >
                   LOGIN
                 </button>
+                <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} closeOnClick pauseOnHover />
               </div>
+              <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} closeOnClick pauseOnHover />
             </form>
           ) : (
             <form onSubmit={handleSubmit2}>
@@ -195,12 +198,13 @@ const DeveloperCard = () => {
                   SIGN IN
                 </button>
               </div>
+              <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} closeOnClick pauseOnHover />
             </form>
           )}
         </div>
-        <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} closeOnClick pauseOnHover />
+        {/* <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} closeOnClick pauseOnHover /> */}
       </div>
-      <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} closeOnClick pauseOnHover />
+      {/* <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} closeOnClick pauseOnHover /> */}
     </div>
   );
 };

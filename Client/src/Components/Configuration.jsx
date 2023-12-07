@@ -4,7 +4,10 @@ import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 const Configuration = () => {
   const developers = [
-    
+    'Developer 1',
+    'Developer 2',
+    'Developer 3',
+    // Add more developers to this array
   ];
   const navigate = useNavigate();
 
@@ -25,7 +28,7 @@ const Configuration = () => {
     onSubmit: (values) => {
 
       // Handle form submission here
-      val(values);
+      // val(values);
       console.log(values);
       const { Name, version, fields } = values;
       const res = fetch("http://localhost:5000/addstud", {
@@ -54,11 +57,11 @@ const Configuration = () => {
     },
   });
 
-  const val = (valu) =>{
-    console.log("val");
-    console.log(valu);
+  // const val = (valu) =>{
+  //   console.log("val");
+  //   console.log(valu);
 
-  }
+  // }
 
 
   const [selectedDevelopers, setSelectedDevelopers] = useState([]); // Initialize selected developers state

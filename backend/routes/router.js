@@ -1,8 +1,6 @@
 const express=require("express");
 const router = express.Router();
 const students=require("../models/studSchema");
-
-
 //send data post method
 router.post("/addstud", async (req, res) => {
     const { Name, version, fields } = req.body;

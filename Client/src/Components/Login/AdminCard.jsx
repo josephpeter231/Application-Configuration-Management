@@ -30,11 +30,14 @@ const AdminCard = () => {
         console.log(data, "userRegister");
         if (data.status === "ok") {
 
-          alert("login successful");
+          toast.success("login successful");
           window.localStorage.setItem("token", data.data);
           window.localStorage.setItem("loggedIn", true);
 
           window.location.href = "./Home";
+        }
+        else{
+          toast.error("Login failed. Please check your credentials and try again.");
         }
       });
   }
@@ -43,9 +46,10 @@ const AdminCard = () => {
   const handleSubmit2 = (e) => {
     if (secretKey !=="cts") {
       e.preventDefault();
-      alert("Invalid Admin");
+      toast.error("Invalid Admin");
     } else {
       e.preventDefault();
+      toast.success("Registration Successfull");
 
       console.log(name, email, password);
       fetch("http://localhost:5000/register", {
@@ -208,6 +212,7 @@ const AdminCard = () => {
             </form>
           )}
         </div>
+        <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} closeOnClick pauseOnHover />
       </div>
     </div>
   );
