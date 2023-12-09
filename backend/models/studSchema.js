@@ -21,6 +21,7 @@ const studSchema = new mongoose.Schema({
       },
     }
   ],
+  developers:[],
 });
 
 module.exports = mongoose.model("Stud", studSchema);

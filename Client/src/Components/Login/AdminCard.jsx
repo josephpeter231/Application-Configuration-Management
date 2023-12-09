@@ -33,8 +33,10 @@ const AdminCard = () => {
           toast.success("login successful");
           window.localStorage.setItem("token", data.data);
           window.localStorage.setItem("loggedIn", true);
+          setTimeout(() => {
+            window.location.href = "./Home";
+          }, 2000);
 
-          window.location.href = "./Home";
         }
         else{
           toast.error("Login failed. Please check your credentials and try again.");
@@ -69,9 +71,9 @@ const AdminCard = () => {
         .then((data) => {
           console.log(data, "userRegister");
           if (data.status === "ok") {
-            alert("Registration Successful");
+            toast.success("Registration Successful");
           } else {
-            alert("Something went wrong");
+            toast.error("Something went wrong");
           }
         });
     }

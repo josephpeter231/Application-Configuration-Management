@@ -5,6 +5,27 @@ import { Link, NavLink } from 'react-router-dom';
 export default function Allstud() {
   const [getstud, SetGetstud] = useState([]);
 
+  // const getuserdata = async () => {
+  //   try {
+  //     const res = await fetch("http://localhost:5000/getstud", {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json"
+  //       }
+  //     });
+
+  //     const data = await res.json();
+  //     console.log(data);
+
+  //     if (res.status === 422 || !data) {
+  //       console.log("error");
+  //     } else {
+  //       SetGetstud(data);
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   // Get student Data
   const getstuddata = async () => {

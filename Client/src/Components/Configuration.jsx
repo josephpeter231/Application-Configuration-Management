@@ -4,9 +4,9 @@ import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 const Configuration = () => {
   const developers = [
-    'Developer 1',
-    'Developer 2',
-    'Developer 3',
+    'Developer1@gmail.com',
+    'Developer2@gmail.com',
+    'Developer3@gmail.com',
     // Add more developers to this array
   ];
   const navigate = useNavigate();
@@ -26,11 +26,8 @@ const Configuration = () => {
       developers:[],
     },
     onSubmit: (values) => {
-
-      // Handle form submission here
-      // val(values);
       console.log(values);
-      const { Name, version, fields } = values;
+      const { Name, version, fields,developers} = values;
       const res = fetch("http://localhost:5000/addstud", {
       method: "POST",
       headers: {
@@ -40,6 +37,7 @@ const Configuration = () => {
         Name,
         version,
         fields,
+        developers,
       }),
     });
     if (res.status === 422 ) {
@@ -81,6 +79,7 @@ const Configuration = () => {
 
     // Update the Formik developers field
     formik.setFieldValue("developers", updatedDevelopers);
+    
   };
 
   

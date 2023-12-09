@@ -2,11 +2,13 @@ import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 const DeveloperCard = () => {
   const [Action, setAction] = useState("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [useremailid, setUserEmailId] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -28,11 +30,13 @@ const DeveloperCard = () => {
       .then((data) => {
         console.log(data, "userRegister");
         if (data.status === "ok") {
+          setUserEmailId(data.emailid);
           toast.success("Login successful");
           window.localStorage.setItem("token", data.data);
           window.localStorage.setItem("loggedIn", true);
-  
-          window.location.href = "./DeveloperHome";
+          setTimeout(() => {
+            window.location.href = "./DeveloperHome";
+          }, 2000);
         } else {
           toast.error("Login failed. Please check your credentials and try again.");
         }
@@ -71,6 +75,7 @@ const DeveloperCard = () => {
   };
 
   return (
+    
     <div>
       <div className="bg-white border-gray-400 border p-1 w-96 shadow-lg rounded-lg rounded-t-lg">
         <div className="flex flex-row w-full justify-around rounded-t-lg">
@@ -204,8 +209,9 @@ const DeveloperCard = () => {
         </div>
         {/* <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} closeOnClick pauseOnHover /> */}
       </div>
-      {/* <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} closeOnClick pauseOnHover /> */}
+     
     </div>
+
   );
 };
 

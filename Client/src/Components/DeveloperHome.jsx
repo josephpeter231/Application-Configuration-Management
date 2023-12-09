@@ -2,11 +2,13 @@ import { useState,useEffect } from "react";
 import { Link,NavLink} from "react-router-dom"
 
 const Home = () => {
-  const [getstud, SetGetstud] = useState([]);
-    console.log(getstud)
-    //get student Data
-    const getstuddata = async () => {
+  const developerArray = ["Developer1@gmail.com"];
+  const commonDataArray = [];
 
+  const [getstud, SetGetstud] = useState([]);
+    // console.log(getstud)
+    //get student Data
+    const Getstuddata = async () => {
         const res = await fetch("http://localhost:5000/getstud", {
             method: "GET",
             headers: {
@@ -15,17 +17,25 @@ const Home = () => {
         });
 
         const data = await res.json();
+  
+        data.forEach(item => {
+          const commonDevelopers = item.developers.filter(dev => developerArray.includes(dev));
+          if (commonDevelopers.length > 0) {
+            commonDataArray.push(item);
+          }
+        });
 
         if (res.status === 422 || !data) {
             console.log("error ");
         } else {
-            SetGetstud(data)
+            SetGetstud(commonDataArray)
+            console.log(getstud)
             console.log("get data");
         }
     }
 
     useEffect(() => {
-        getstuddata();
+        Getstuddata();
     }, [])
 
     //Delete student data
@@ -49,10 +59,7 @@ const Home = () => {
 
     // }
     //search Student
-    const [searchInput,setSearchInput]=useState('');
-    const searchStud=(searchval)=>{
-        setSearchInput(searchval)
-    }
+   
   const logOut = () => {
     window.localStorage.clear();
     window.location.href = "/loginOrSignup";
@@ -112,15 +119,7 @@ const Home = () => {
               </thead>
               <tbody>
                 {getstud
-                  .filter((val) => {
-                    if (searchInput === "") {
-                      return val;
-                    } else if (
-                      val.name.toLowerCase().includes(searchInput.toLowerCase())
-                    ) {
-                      return val;
-                    }
-                  })
+                 
                   .map((result, id) => {
                     return (
                       <>

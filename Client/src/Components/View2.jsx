@@ -4,10 +4,9 @@ import axios from "axios";
 
 export default function View() {
   const [getstud, setGetstud] = useState({});
-
-
   const [editMode, setEditMode] = useState(false);
   // const [editedFields, setEditedFields] = useState([]);
+  
 
   const { id } = useParams();
   console.log(id);
@@ -62,7 +61,6 @@ export default function View() {
 
   //  const save = (values) => {
   //    // Handle form submission here
-
   //    console.log(values);
   //    const { Name, version, fields } = values;
   //    const save =()=> fetch("http://localhost:5000/addstud", {
@@ -179,7 +177,7 @@ export default function View() {
                 
                 </button>
               )}
-              <Link className="btn btn-primary mt-5" to="/allconfig">
+              <Link className="btn btn-primary mt-5" to="/DeveloperHome">
                 Back
               </Link>
             </div>

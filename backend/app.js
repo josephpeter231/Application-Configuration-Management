@@ -39,9 +39,9 @@ app.post("/register", async (req, res) => {
   try {
     const oldUser = await User.findOne({ email });
 
-    if (oldUser) {
-      return res.json({ error: "User Exists" });
-    }
+    // if (oldUser) {
+    //   return res.json({ error: "User Exists" });
+    // }
     await User.create({
       email,
       password: encryptedPassword,
@@ -55,6 +55,7 @@ app.post("/register", async (req, res) => {
 app.post("/login-user", async (req, res) => {
   const { email, password } = req.body;
 
+
   const user = await User.findOne({ email });
   if (!user) {
     return res.json({ error: "User Not found" });
@@ -65,7 +66,7 @@ app.post("/login-user", async (req, res) => {
     });
 
     if (res.status(201)) {
-      return res.json({ status: "ok", data: token });
+      return res.json({ status: "ok", data: token ,emailid:req.body.email});
     } else {
       return res.json({ error: "error" });
     }

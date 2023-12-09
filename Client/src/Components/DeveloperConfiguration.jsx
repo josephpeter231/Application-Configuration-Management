@@ -3,8 +3,10 @@ import { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 export default function Allstud() {
-  const [getstud, SetGetstud] = useState([]);
+  const developerArray = ["Developer1@gmail.com"];
+  const commonDataArray = [];
 
+  const [getstud, SetGetstud] = useState([]);
 
   // Get student Data
   const getstuddata = async () => {
@@ -17,12 +19,20 @@ export default function Allstud() {
       });
 
       const data = await res.json();
-      console.log(data);
+    
+      data.forEach(item => {
+        const commonDevelopers = item.developers.filter(dev => developerArray.includes(dev));
+        if (commonDevelopers.length > 0) {
+          commonDataArray.push(item);
+        }
+      });
+      
+      console.log(commonDataArray);
 
       if (res.status === 422 || !data) {
         console.log("error");
       } else {
-        SetGetstud(data);
+        SetGetstud(commonDataArray);
       }
     } catch (error) {
       console.error(error);
@@ -138,7 +148,7 @@ export default function Allstud() {
         <div className="d-flex">
           <NavLink
             className="btn btn-primary ms-auto mb-5 mr-5 mt-2"
-            to="/Home"
+            to="/DeveloperHome"
           >
             Back to Home
           </NavLink>
