@@ -4,9 +4,9 @@ import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 const Configuration = () => {
   const developers = [
-    'Developer1@gmail.com',
-    'Developer2@gmail.com',
-    'Developer3@gmail.com',
+    'developer1@gmail.com',
+    'd2@gmail.com',
+    'dev3@gmail.com',
     // Add more developers to this array
   ];
   const navigate = useNavigate();

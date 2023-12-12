@@ -22,7 +22,6 @@ router.post("/addstud", async (req, res) => {
     }
   });
   
-
 //get student Data
 router.get("/getstud", async(req,res)=>{
     try{

@@ -2,7 +2,10 @@ import { useState,useEffect } from "react";
 import { Link,NavLink} from "react-router-dom"
 
 const Home = () => {
-  const developerArray = ["Developer1@gmail.com"];
+  const user = localStorage.getItem('user');
+  console.log('fdshfd')
+  console.log(user);
+  const developerArray = [user];
   const commonDataArray = [];
 
   const [getstud, SetGetstud] = useState([]);

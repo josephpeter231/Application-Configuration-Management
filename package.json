@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "@fortawesome/free-brands-svg-icons": "^6.4.2",
-    "build": "^0.1.4",
-    "firebase": "^10.7.1"
-  }
-}

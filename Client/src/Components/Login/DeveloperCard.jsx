@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// Storing in LocalStorage
 
 
 const DeveloperCard = () => {
+
   const [Action, setAction] = useState("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -31,6 +33,10 @@ const DeveloperCard = () => {
         console.log(data, "userRegister");
         if (data.status === "ok") {
           setUserEmailId(data.emailid);
+          const val = data.emailid;
+          localStorage.setItem('user', val);
+
+
           toast.success("Login successful");
           window.localStorage.setItem("token", data.data);
           window.localStorage.setItem("loggedIn", true);
