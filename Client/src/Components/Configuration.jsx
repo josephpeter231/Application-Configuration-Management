@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Configuration = () => {
   const developers = [
     'developer1@gmail.com',
@@ -44,8 +46,7 @@ const Configuration = () => {
       console.log("error ");
       alert("error");
     } else {
-    
-  
+      toast.success("Configuration Added Successfully");
       setTimeout(() => {
         navigate('/Home');
       }, 3000);
@@ -278,6 +279,7 @@ const Configuration = () => {
             >
               Save Changes
             </button>
+            <ToastContainer />
           </div>
         </div>
       </div>

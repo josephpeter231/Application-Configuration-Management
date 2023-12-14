@@ -209,11 +209,11 @@ const DeveloperCard = () => {
                   SIGN IN
                 </button>
               </div>
-              <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} closeOnClick pauseOnHover />
+              <ToastContainer position="top" autoClose={5000} hideProgressBar={false} closeOnClick pauseOnHover />
             </form>
           )}
         </div>
-        {/* <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} closeOnClick pauseOnHover /> */}
+        {/* <ToastContainer position="top" autoClose={5000} hideProgressBar={false} closeOnClick pauseOnHover /> */}
       </div>
      
     </div>

@@ -85,13 +85,7 @@ export default function View() {
           <div className="flex flex-row  ml-16 ">
             <a className="text-white flex flex-row justify-start items-center font-bold text-xl font-sans">
               ACM
-              <img
-                src="src/assets/acm2.png"
-                className="ml-2"
-                height={30}
-                width={30}
-                alt=""
-              />
+              
             </a>
           </div>
           <div className="flex w-full justify-center items-center">

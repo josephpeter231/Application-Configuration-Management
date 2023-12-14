@@ -83,13 +83,7 @@ export default function View() {
           <div className="flex flex-row  ml-16 ">
             <a className="text-white flex flex-row justify-start items-center font-bold text-xl font-sans">
               ACM
-              <img
-                src="src/assets/acm2.png"
-                className="ml-2"
-                height={30}
-                width={30}
-                alt=""
-              />
+              
             </a>
           </div>
           <div className="flex w-full justify-center items-center">
@@ -101,8 +95,9 @@ export default function View() {
             </a>
           </div>
           <div className="flex justify-center items-center ml-auto self-end">
-            <Link to="/profile">
-              <img src="src/assets/profile.png" height={50} width={50} alt="" />
+            <Link to="/loginOrSignup">
+        
+              <img src="../assets/profile.jpg" height={50} width={50} alt="" />
             </Link>
           </div>
         </div>
@@ -168,14 +163,15 @@ export default function View() {
                   }}
                 >
                   Save Changes
-                </button>
+                  </button>
               ) : (
                 <button
-                //   className="bg-red-600 text-white px-8 py-2 flex rounded-md max-w-xs"
+                  className="bg-red-600 text-white px-8 py-2 flex rounded-md max-w-xs"
                   onClick={editSaveModeToggle}
                 >
-                
+                  Edit
                 </button>
+                
               )}
               <Link className="btn btn-primary mt-5" to="/DeveloperHome">
                 Back
