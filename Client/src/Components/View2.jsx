@@ -5,6 +5,9 @@ import axios from "axios";
 export default function View() {
   const [getstud, setGetstud] = useState({});
   const [editMode, setEditMode] = useState(false);
+  const user = localStorage.getItem('user');
+
+
   // const [editedFields, setEditedFields] = useState([]);
   
 
@@ -12,7 +15,7 @@ export default function View() {
   console.log(id);
   const updateData = async () => {
     try {
-      axios.patch(`http://localhost:5000/updatestud/${id}`, getstud);
+      axios.patch( http://localhost:5000/updatestud/${id}, getstud);
       console.log(getstud);
     } catch (e) {
       console.log(e);
@@ -21,7 +24,7 @@ export default function View() {
 
   const getstuddata = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/getstud/${id}`, {
+      const res = await fetch(http://localhost:5000/getstud/${id}, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -31,6 +34,7 @@ export default function View() {
 
       const data = await res.json();
       console.log(data);
+      console.log(data.fields[0].fieldLabel);
 
       if (res.status === 422 || !data) {
         console.log("error");
@@ -125,34 +129,35 @@ export default function View() {
                 {getstud.version}
               </div>
             </div>
-            {getstud.fields &&
-              getstud.fields.map((field, index) => (
-                <div
-                  key={index}
-                  className="p-4 bg-gray-100 rounded-md shadow-md mt-5"
-                >
-                  <input
-                    type="text"
-                    name={`fields[${index}].fieldLabel`}
-                    value={field.fieldLabel} // Use value instead of placeholder
-                    onChange={(e) =>
-                      handleFieldChange(index, "fieldLabel", e.target.value)
-                    }
-                    className="py-2 px-2 rounded border border-gray-300 focus:outline-none focus:ring focus:border-blue-400 text-black mb-4"
-                    disabled={!editMode || field.editAccess === false}
-                  />
-                  <input
-                    type="text"
-                    value={field.fieldValue} // Use value instead of placeholder
-                    name={`fields[${index}].fieldValue`}
-                    onChange={(e) =>
-                      handleFieldChange(index, "fieldValue", e.target.value)
-                    }
-                    className="w-full p-2 rounded border border-gray-300 focus:outline-none focus:ring focus:border-blue-400 text-black"
-                    disabled={!editMode || field.editAccess === false}
-                  />
-                </div>
-              ))}
+           {getstud.fields &&
+  getstud.fields.map((field, index) => (
+    <div
+      key={index}
+      className="p-4 bg-gray-100 rounded-md shadow-md mt-5"
+    >
+      <input
+        type="text"
+        name={field.fieldLabel}
+        value={field.fieldLabel} // Use value instead of placeholder
+        onChange={(e) =>
+          handleFieldChange(index, "fieldLabel", e.target.value)
+        }
+        className="py-2 px-2 rounded border border-gray-300 focus:outline-none focus:ring focus:border-blue-400 text-black mb-4"
+        disabled={!editMode || field.editAccess === false}
+      />
+      <input
+        type="text"
+        value={field.fieldValue} // Use value instead of placeholder
+        name={field.fieldValue}
+        onChange={(e) =>
+          handleFieldChange(index, "fieldValue", e.target.value)
+        }
+        className="w-full p-2 rounded border border-gray-300 focus:outline-none focus:ring focus:border-blue-400 text-black"
+        disabled={!editMode || field.editAccess === false}
+      />
+    </div>
+  ))}
+
 
             <div className="mt-4">
               {editMode ? (
