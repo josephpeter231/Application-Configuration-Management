@@ -6,7 +6,7 @@ const studSchema = new mongoose.Schema({
   },
   version: {
     type: String,
-  }, 
+  },
   fields: [
     {
       fieldLabel: {
