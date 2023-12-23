@@ -34,7 +34,7 @@ export default function Edit() {
 
   const getstuddata = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/getstud/${id}`, {
+      const res = await fetch(`https://acm-gck0.onrender.com/getstud/${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -64,7 +64,7 @@ export default function Edit() {
     const { name, version, field } = inputdata;
     const { fieldlabel, value } = field;
 
-    const res2 = await fetch(`http://localhost:5000/updatestud/${id}`, {
+    const res2 = await fetch(`https://acm-gck0.onrender.com/updatestud/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

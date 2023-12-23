@@ -7,7 +7,7 @@ const Home = () => {
     //get student Data
     const getstuddata = async () => {
 
-        const res = await fetch("http://localhost:5000/getstud", {
+        const res = await fetch("https://acm-gck0.onrender.com/getstud", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"

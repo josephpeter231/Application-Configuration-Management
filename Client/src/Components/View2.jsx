@@ -12,7 +12,7 @@ export default function View() {
   console.log(id);
   const updateData = async () => {
     try {
-      axios.patch(`http://localhost:5000/updatestud/${id}`, getstud);
+      axios.patch(`https://acm-gck0.onrender.com/updatestud/${id}`, getstud);
       console.log(getstud);
     } catch (e) {
       console.log(e);
@@ -21,7 +21,7 @@ export default function View() {
 
   const getstuddata = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/getstud/${id}`, {
+      const res = await fetch(`https://acm-gck0.onrender.com/getstud/${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

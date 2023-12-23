@@ -22,7 +22,7 @@ export default function View() {
 
   const getstuddata = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/getstud/${id}`, {
+      const res = await fetch(`https://acm-gck0.onrender.com/getstud/${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
