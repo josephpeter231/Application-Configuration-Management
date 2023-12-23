@@ -28,7 +28,7 @@ const Configuration = () => {
     onSubmit: (values) => {
      
       const { Name, version, fields,developers} = values;
-      const res = fetch("http://localhost:5000/addstud", {
+      const res = fetch("https://acm-gck0.onrender.com/addstud", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
