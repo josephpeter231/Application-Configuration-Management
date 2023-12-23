@@ -22,7 +22,7 @@ function App() {
     <Provider store={store}>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<DeveloperHome/>} exact />
+        <Route path='/' element={<Intro />} exact />
         <Route path="/home"  element={<Home/>}/>
         <Route path="/developerhome"  element={<DeveloperHome/>}/>
         <Route path="/profile"  element={<Profile/>}/>
