@@ -12,7 +12,7 @@ const AdminCard = () => {
   function handleSubmit(e) {
     e.preventDefault();
     console.log(email, password);
-    fetch("http://localhost:5000/login-user", {
+    fetch("https://acm-gck0.onrender.com/login-user", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -54,7 +54,7 @@ const AdminCard = () => {
       toast.success("Registration Successfull");
 
       console.log(name, email, password);
-      fetch("http://localhost:5000/register", {
+      fetch("https://acm-gck0.onrender.com/register", {
         method: "POST",
         crossDomain: true,
         headers: {
