@@ -221,4 +221,6 @@ const DeveloperCard = () => {
   );
 };
 
+
+
 export default DeveloperCard;
