@@ -34,7 +34,7 @@ const AdminCard = () => {
           window.localStorage.setItem("token", data.data);
           window.localStorage.setItem("loggedIn", true);
           setTimeout(() => {
-            window.location.href = "/Home";
+            window.location.href = "/home";
           }, 2000);
 
         }
