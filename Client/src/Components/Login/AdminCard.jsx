@@ -34,7 +34,7 @@ const AdminCard = () => {
           window.localStorage.setItem("token", data.data);
           window.localStorage.setItem("loggedIn", true);
           setTimeout(() => {
-            window.location.href = "./Home";
+            window.location.href = "/Home";
           }, 2000);
 
         }
@@ -72,7 +72,7 @@ const AdminCard = () => {
           console.log(data, "userRegister");
           if (data.status === "ok") {
             toast.success("Registration Successful");
-            window.location.href="/config"
+            window.location.href="/"
           } else {
             toast.error("Something went wrong");
           }
